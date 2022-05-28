@@ -33,6 +33,8 @@ provider "aws" {
     ssm            = "http://localhost:4566"
     stepfunctions  = "http://localhost:4566"
     sts            = "http://localhost:4566"
+    events         = "http://localhost:4566"
+    logs           = "http://localhost:4566"
   }
 }
 

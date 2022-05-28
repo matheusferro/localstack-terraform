@@ -43,3 +43,11 @@ IIIIIIIIIIIT'S DONE!!!! \o/
 ### Configurations
 
 The configuration to connect directly with localstack is in `main.tf`
+
+### Utils
+
+See logs from lambda function:
+
+```
+aws --endpoint-url=http://localhost:4566 logs tail /aws/lambda/hello_lambda_func --follow
+```
