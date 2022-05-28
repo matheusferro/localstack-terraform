@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  localstack-aws:
+    container_name: localstack-aws
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:53:53"
+      - "127.0.0.1:53:53/udp"
+      - "127.0.0.1:443:443"
+      - "127.0.0.1:4566:4566"
+      - "127.0.0.1:4571:4571"
+    environment:
+      - SERVICES=sns,sqs,lambda,s3,events
+#      - DEBUG=1
+#      - LS_LOG=debug
