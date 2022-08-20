@@ -2,11 +2,24 @@
 
 ### Requirements
 
+- aws cli (Recommended v2);
 - docker;
 - docker-compose;
 - terraform cli;
 
 ### Running
+
+#### AWS CLI
+
+Configure aws cli environment:
+
+```bash
+aws configure
+AWS Access Key ID [*]: test
+AWS Secret Access Key [*]: test
+Default region name [sa-east-1]: us-east-1
+Default output format [json]: json
+```
 
 #### Localstack
 
