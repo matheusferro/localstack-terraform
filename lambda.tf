@@ -62,7 +62,31 @@ resource "aws_iam_policy" "policy_logs" {
 EOF
 }
 
+resource "aws_iam_policy" "policy_sfn" {
+  name = "lambdaSfnPolicy"
+
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "states:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+EOF
+}
+
 resource "aws_iam_role_policy_attachment" "iam_for_lambda_attach_policy_logs" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.policy_logs.arn
+}
+
+resource "aws_iam_role_policy_attachment" "iam_for_lambda_attach_policy_sfn" {
+  role       = aws_iam_role.lambda_role.name
+  policy_arn = aws_iam_policy.policy_sfn.arn
 }

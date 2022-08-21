@@ -59,8 +59,20 @@ The configuration to connect directly with localstack is in `main.tf`
 
 ### Utils
 
+Get cloudwatch logs groups:
+
+```bash
+aws --endpoint-url=http://localhost:4566 logs describe-log-groups
+```
+
 See logs from lambda function:
 
-```
+```bash
 aws --endpoint-url=http://localhost:4566 logs tail /aws/lambda/hello_lambda_func --follow
+```
+
+Get step function execution history:
+
+```bash
+aws --endpoint-url=http://localhost:4566 stepfunctions get-execution-history --execution-arn {executionArn}
 ```
