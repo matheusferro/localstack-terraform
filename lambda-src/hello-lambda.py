@@ -1,15 +1,12 @@
 import boto3
-from datetime import datetime
-import logging
-import time
+import log
 
-LOGGER = logging.getLogger()
-LOGGER.setLevel(logging.INFO)
+# logger = log.setup_custom_logger('lambdaLogger')
 
 def lambda_handler(event, context):
+  logger = log.setup_custom_logger('lambdaLogger')
   response = f'Hello!! called by: {event["job"]}'
-  LOGGER.info(f'{datetime.now()} - Response: {response} ')
-  print(f'{datetime.now()} - Response: {response} ')
+  logger.info(f'- {response}')
   return {
     'statusCode': 200,
     'body': response

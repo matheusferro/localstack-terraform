@@ -1,27 +1,3 @@
-#https://registry.terraform.io/modules/terraform-aws-modules/eventbridge/aws/latest
-# module "eventbridge" {
-#   source = "terraform-aws-modules/eventbridge/aws"
-
-#   create_bus = false
-
-#   rules = {
-#     crons = {
-#       description         = "Call lambda every 50 seconds"
-#       schedule_expression = "cron(*/50 * * * * *)"
-#     }
-#   }
-
-#   targets = {
-#     crons = [
-#       {
-#         name            = "my lambda"
-#         arn             = aws_lambda_function.hello_lambda.arn
-#         input = jsonencode({"job": "event-cron"})
-#       }
-#     ]
-#   }
-# }
-
 resource "aws_cloudwatch_event_rule" "cloudwatch_lambda_rule" {
   name                = "cloudwatch_lambda_rule"
   description         = "Call lambda every minute"

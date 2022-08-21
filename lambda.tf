@@ -1,36 +1,8 @@
 data "archive_file" "python_lambda_package" {
   type        = "zip"
-  source_file = "${path.module}/lambda-src/hello-lambda.py"
+  source_dir  = "${path.module}/lambda-src/"
   output_path = "hello-lambda.zip"
 }
-
-# data "aws_iam_policy_document" "lambda_assume_role_policy" {
-#   # statement {
-#   #   effect  = "Allow"
-#   #   actions = ["sts:AssumeRole"]
-#   #   principals {
-#   #     type        = "Service"
-#   #     identifiers = ["lambda.amazonaws.com"]
-#   #   }
-#   # }
-
-
-#   statement {
-#     sid     = "logsLambda"
-#     effect  = "Allow"
-#     actions = ["logs:*"]
-#     principals {
-#       type        = "Service"
-#       identifiers = ["lambda.amazonaws.com"]
-#     }
-#     # resources = ["*"]
-#   }
-# }
-
-# resource "aws_iam_role" "lambda_role" {
-#   name               = "lambda-lambdaRole-waf"
-#   assume_role_policy = data.aws_iam_policy_document.lambda_assume_role_policy.json
-# }
 
 resource "aws_lambda_function" "hello_lambda" {
   function_name    = "hello_lambda_func"
