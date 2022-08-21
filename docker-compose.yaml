@@ -3,7 +3,7 @@ version: '3'
 services:
   localstack-aws:
     container_name: localstack-aws
-    image: localstack/localstack
+    image: localstack/localstack:1.0.4
     ports:
       - "127.0.0.1:53:53"
       - "127.0.0.1:53:53/udp"
